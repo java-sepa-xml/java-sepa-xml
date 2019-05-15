@@ -39,6 +39,7 @@ public abstract class SEPA {
         nodeGrpHdr.append("MsgId").value(this.reciver.getBIC() + "00" + SEPAFormatDate.formatDate(executionDate));
         nodeGrpHdr.append("CreDtTm").value(SEPAFormatDate.formatDateLong(executionDate));
         nodeGrpHdr.append("NbOfTxs").value(this.transactions.size());
+        nodeGrpHdr.append("CtrlSum").value(this.getTransactionVolume());
         nodeGrpHdr.append("InitgPty").append("Nm").value(this.reciver.getName());
 
         this.nodePmtInf = nodeCstmrDrctDbtInitn.append("PmtInf");
