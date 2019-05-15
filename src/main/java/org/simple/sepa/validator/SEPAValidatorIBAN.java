@@ -1,13 +1,13 @@
 package org.simple.sepa.validator;
 
-import java.util.Map;
+import org.simple.sepa.format.SEPAFormatFilter;
+
 import java.util.HashMap;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.Map;
 
-public class SEPAValidatorIBAN implements SEPAValidator {
+public class SEPAValidatorIBAN {
 
-    private static Map<String, Integer> CODE_LENGTHS = new HashMap<String, Integer>() {{
+    private static final Map<String, Integer> CODE_LENGTHS = new HashMap<String, Integer>() {{
         put("AD", 24);
         put("AE", 23);
         put("AT", 20);
@@ -73,32 +73,28 @@ public class SEPAValidatorIBAN implements SEPAValidator {
         put("TR", 26);
     }};
 
-    public boolean isValid(String input) {
+    public static boolean isValid(String input) {
         if (input == null) {
             return false;
         }
 
+        // filter
+        String iban = SEPAFormatFilter.filter(input);
 
-        StringBuilder stringBuilder = new StringBuilder();
-        for (char c : input.toUpperCase().toCharArray()) {
-            if (c >= 'A' && c <= 'Z'
-                || c >= '0' && c <= '9'
-            ) {
-                stringBuilder.append(c);
+        // check length based on country code
+        String contryCode;
+        if (iban.length() > 2) {
+            contryCode = iban.substring(0, 2);
+            Integer expectedLength = CODE_LENGTHS.get(contryCode);
+            if (expectedLength == null || iban.length() != expectedLength) {
+                return false;
             }
-        }
-
-        String iban = stringBuilder.toString();
-
-        String contryCode = iban.substring(0, 2);
-
-        if (iban.length() != CODE_LENGTHS.get(contryCode)) {
+        } else {
             return false;
         }
 
         String checkSum = iban.substring(2, 4);
-        String number = iban.substring(4, iban.length());
-
+        String number = iban.substring(4);
         String digist = number + contryCode + checkSum;
 
         StringBuilder digitsBuilder = new StringBuilder();
@@ -110,7 +106,7 @@ public class SEPAValidatorIBAN implements SEPAValidator {
             }
         }
 
-        return this.mod97(digitsBuilder.toString()) == 1;
+        return mod97(digitsBuilder.toString()) == 1;
     }
 
     private static int mod97(String digits) {
