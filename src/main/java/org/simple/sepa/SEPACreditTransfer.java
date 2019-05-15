@@ -44,6 +44,12 @@ public class SEPACreditTransfer extends SEPA {
             nodeCdtTrfTxInf.append("CdtrAcct")
                     .append("Id").append("IBAN")
                     .value(transaction.getBankAccount().getIBAN());
+
+            if (transaction.getRemittance() != null) {
+                nodeCdtTrfTxInf.append("RmtInf")
+                        .append("Ustrd")
+                        .value(transaction.getRemittance());
+            }
         }
     }
 }

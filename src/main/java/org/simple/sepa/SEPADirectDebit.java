@@ -14,8 +14,8 @@ public class SEPADirectDebit extends SEPA {
         this(reciver, transactions, new Date(), creditorID);
     }
 
-    public SEPADirectDebit(SEPABankAccount reciver, List<SEPATransaction> transactions, Date executionDate, String creditorID) {
-        super(reciver, transactions, executionDate);
+    public SEPADirectDebit(SEPABankAccount reciever, List<SEPATransaction> transactions, Date executionDate, String creditorID) {
+        super(reciever, transactions, executionDate);
         this.creditorID = creditorID;
         this.build();
     }
