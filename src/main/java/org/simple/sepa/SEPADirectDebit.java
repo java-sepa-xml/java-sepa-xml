@@ -10,8 +10,8 @@ public class SEPADirectDebit extends SEPA {
 
     private String creditorID;
 
-    public SEPADirectDebit(SEPABankAccount reciver, List<SEPATransaction> transactions, String creditorID) {
-        this(reciver, transactions, new Date(), creditorID);
+    public SEPADirectDebit(SEPABankAccount reciever, List<SEPATransaction> transactions, String creditorID) {
+        this(reciever, transactions, new Date(), creditorID);
     }
 
     public SEPADirectDebit(SEPABankAccount reciever, List<SEPATransaction> transactions, Date executionDate, String creditorID) {
@@ -39,8 +39,14 @@ public class SEPADirectDebit extends SEPA {
 
         for (SEPATransaction transaction : this.transactions) {
             XMLNode nodeDrctDbtTxInf = this.nodePmtInf.append("DrctDbtTxInf");
-            nodeDrctDbtTxInf.append("PmtId")
-                    .append("EndToEndId").value("NOTPROVIDED");
+
+            XMLNode pmtId = nodeDrctDbtTxInf.append("PmtId");
+            if (transaction.getId() != null) {
+                pmtId.append("InstrId").value(transaction.getId());
+            }
+            pmtId.append("EndToEndId").value(transaction.getEndToEndId() != null
+                    ? transaction.getEndToEndId()
+                    : "NOTPROVIDED");
 
             nodeDrctDbtTxInf.append("Amt").
                     append("InstdAmt")

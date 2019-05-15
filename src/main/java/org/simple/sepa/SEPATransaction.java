@@ -13,9 +13,11 @@ public class SEPATransaction {
 
 	private SEPABankAccount bankAccount;
 
+	private String id;
 	private String subject;
 	private double value;
 	private Date date;
+	private String endToEndId;
 
 	private String mandatReference;
 	private Date mandatReferenceDate;
@@ -60,6 +62,24 @@ public class SEPATransaction {
 
 	public SEPATransaction(SEPABankAccount bankAccount, Double value, String subject, Currency currency) {
 		this(bankAccount, value, subject, new Date(), null, null, currency, null);
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public SEPATransaction setId(String id) {
+		this.id = id;
+		return this;
+	}
+
+	public String getEndToEndId() {
+		return endToEndId;
+	}
+
+	public SEPATransaction setEndToEndId(String endToEndId) {
+		this.endToEndId = endToEndId;
+		return this;
 	}
 
 	public SEPABankAccount getBankAccount() {
