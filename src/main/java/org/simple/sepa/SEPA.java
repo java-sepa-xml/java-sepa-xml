@@ -29,11 +29,11 @@ public abstract class SEPA {
 
     protected void build() {
         this.document = new XMLNode().append("Document")
-                .attr("xmlns", "urn:iso:std:iso:20022:tech:xsd:pain.008.002.02")
-                .attr("xsi:schemaLocation", "urn:iso:std:iso:20022:tech:xsd:pain.008.002.02 pain.008.002.02.xsd")
+                .attr("xmlns", "urn:iso:std:iso:20022:tech:xsd:pain.001.001.03")
+                .attr("xsi:schemaLocation", "urn:iso:std:iso:20022:tech:xsd:pain.001.001.03 pain.001.001.03.xsd")
                 .attr("xmlns:xsi", "http://www.w3.org/2001/XMLSchema-instance");
 
-        XMLNode nodeCstmrDrctDbtInitn = this.document.append("CstmrDrctDbtInitn");
+        XMLNode nodeCstmrDrctDbtInitn = this.document.append("CstmrCdtTrfInitn");
         XMLNode nodeGrpHdr = nodeCstmrDrctDbtInitn.append("GrpHdr");
 
         nodeGrpHdr.append("MsgId").value(this.reciver.getBIC() + "00" + SEPAFormatDate.formatDate(executionDate));
@@ -43,17 +43,17 @@ public abstract class SEPA {
 
         this.nodePmtInf = nodeCstmrDrctDbtInitn.append("PmtInf");
         this.nodePmtInf.append("PmtInfId").value("PMT-ID0-" + SEPAFormatDate.formatDate(executionDate));
-        this.nodePmtInf.append("PmtMtd").value("DD");
+        this.nodePmtInf.append("PmtMtd").value("TRA"); // For PAIN 001 (Überweisung) there are three Payment Methods: CHK (Cheque), TRF (TransferAdvice), TRA (CreditTransfer)
         this.nodePmtInf.append("BtchBookg").value("true");
         this.nodePmtInf.append("NbOfTxs").value(this.transactions.size());
         this.nodePmtInf.append("CtrlSum").value(this.getTransactionVolume());
 
         XMLNode nodePmtTpInf = this.nodePmtInf.append("PmtTpInf");
         nodePmtTpInf.append("SvcLvl").append("Cd").value("SEPA");
-        nodePmtTpInf.append("LclInstrm").append("Cd").value("CORE");
-        nodePmtTpInf.append("SeqTp").append("Cd").value("FRST");
+        // nodePmtTpInf.append("LclInstrm").append("Cd").value("CORE"); // only necessary for PAIN 008 (Lastschrift)
+        // nodePmtTpInf.append("SeqTp").append("Cd").value("FRST"); // only necessary for PAIN 008 (Lastschrift)
 
-        this.nodePmtInf.append("ReqdColltnDt").value(SEPAFormatDate.formatDateShort(executionDate));
+        this.nodePmtInf.append("ReqdExctnDt").value(SEPAFormatDate.formatDateShort(executionDate));
         this.nodePmtInf.append(this.getType() + "tr")
                 .append("Nm").value(this.reciver.getName());
 
