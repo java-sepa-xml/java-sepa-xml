@@ -25,6 +25,7 @@ public class SEPACreditTransfer extends SEPA {
     protected void addTransactions() {
         for (SEPATransaction transaction : this.transactions) {
             XMLNode nodeCdtTrfTxInf = this.nodePmtInf.append("CdtTrfTxInf");
+
             nodeCdtTrfTxInf.append("PmtId")
                     .append("EndToEndId").value("NOTPROVIDED");
 
