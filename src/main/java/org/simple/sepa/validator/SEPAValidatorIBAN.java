@@ -84,7 +84,7 @@ public class SEPAValidatorIBAN {
         // check length based on country code
         String contryCode;
         if (iban.length() > 2) {
-            contryCode = iban.substring(0, 2);
+            contryCode = iban.substring(0, 2).toUpperCase();
             Integer expectedLength = CODE_LENGTHS.get(contryCode);
             if (expectedLength == null || iban.length() != expectedLength) {
                 return false;

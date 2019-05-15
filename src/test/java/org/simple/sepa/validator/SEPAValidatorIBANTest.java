@@ -10,7 +10,7 @@ public class SEPAValidatorIBANTest {
     public void isValidValidIBANS() throws Exception {
         assertTrue(SEPAValidatorIBAN.isValid("NL56INGB0758031605"));
         assertTrue(SEPAValidatorIBAN.isValid("NL84RABO0174624636"));
-        assertTrue(SEPAValidatorIBAN.isValid("FR9330066688265777237545375"));
+        assertTrue(SEPAValidatorIBAN.isValid("fr9330066688265777237545375"));
         assertTrue(SEPAValidatorIBAN.isValid("FR5630066375266881733924552"));
         assertTrue(SEPAValidatorIBAN.isValid("FR8330066916797896982199839"));
         assertTrue(SEPAValidatorIBAN.isValid("DE79500105179714857427"));
