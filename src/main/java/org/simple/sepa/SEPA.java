@@ -62,10 +62,12 @@ public abstract class SEPA {
                 .append("IBAN")
                 .value(this.reciver.getIBAN());
 
-        this.nodePmtInf.append(this.getType() + "trAgt")
-                .append("FinInstnId")
-                .append("BIC")
-                .value(this.reciver.getBIC());
+        if (this.reciver.getBIC() != null) {
+            this.nodePmtInf.append(this.getType() + "trAgt")
+                    .append("FinInstnId")
+                    .append("BIC")
+                    .value(this.reciver.getBIC());
+        }
 
         this.nodePmtInf.append("ChrgBr").value("SLEV");
 
