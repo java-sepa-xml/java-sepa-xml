@@ -51,7 +51,7 @@ public class SEPADirectDebit extends SEPA {
             nodeDrctDbtTxInf.append("Amt").
                     append("InstdAmt")
                     .attr("Ccy", transaction.getCurrency().toString())
-                    .value(transaction.getValue());
+                    .value(transaction.getValue().doubleValue());
 
             XMLNode nodeMndtRltdInf = nodeDrctDbtTxInf.append("DrctDbtTx")
                     .append("MndtRltdInf");

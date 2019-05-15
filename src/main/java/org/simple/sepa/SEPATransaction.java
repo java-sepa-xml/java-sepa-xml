@@ -1,5 +1,6 @@
 package org.simple.sepa;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 public class SEPATransaction {
@@ -15,7 +16,7 @@ public class SEPATransaction {
 
 	private String id;
 	private String subject;
-	private double value;
+	private BigDecimal value;
 	private Date date;
 	private String endToEndId;
 
@@ -27,7 +28,7 @@ public class SEPATransaction {
 
 	public SEPATransaction(
 		SEPABankAccount bankAccount,
-		double value,
+		BigDecimal value,
 		String subject,
 		Date date,
 		String mandatReference,
@@ -47,7 +48,7 @@ public class SEPATransaction {
 
 	public SEPATransaction(
 			SEPABankAccount bankAccount,
-			double value,
+			BigDecimal value,
 			String subject,
 			Date date,
 			String mandatReference,
@@ -56,11 +57,11 @@ public class SEPATransaction {
 		this(bankAccount, value, subject, date, mandatReference, mandatReferenceDate, Currency.EUR, null);
 	}
 
-	public SEPATransaction(SEPABankAccount bankAccount, Double value, String subject) {
+	public SEPATransaction(SEPABankAccount bankAccount, BigDecimal value, String subject) {
 		this(bankAccount, value, subject, new Date(), null, null, Currency.EUR, null);
 	}
 
-	public SEPATransaction(SEPABankAccount bankAccount, Double value, String subject, Currency currency) {
+	public SEPATransaction(SEPABankAccount bankAccount, BigDecimal value, String subject, Currency currency) {
 		this(bankAccount, value, subject, new Date(), null, null, currency, null);
 	}
 
@@ -86,8 +87,8 @@ public class SEPATransaction {
 		return bankAccount;
 	}
 
-	public double getValue() {
-		return Math.round(value * 100.0) / 100.0;
+	public BigDecimal getValue() {
+		return value;
 	}
 
 	public String getSubject() {

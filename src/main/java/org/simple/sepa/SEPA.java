@@ -4,6 +4,7 @@ import org.simple.sepa.format.SEPAFormatDate;
 import org.simple.sepa.xml.XMLNode;
 
 import java.io.OutputStream;
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
@@ -39,7 +40,7 @@ public abstract class SEPA {
         nodeGrpHdr.append("MsgId").value(this.reciver.getBIC() + "00" + SEPAFormatDate.formatDate(executionDate));
         nodeGrpHdr.append("CreDtTm").value(SEPAFormatDate.formatDateLong(executionDate));
         nodeGrpHdr.append("NbOfTxs").value(this.transactions.size());
-        nodeGrpHdr.append("CtrlSum").value(this.getTransactionVolume());
+        nodeGrpHdr.append("CtrlSum").value(this.getTransactionVolume().doubleValue());
         nodeGrpHdr.append("InitgPty").append("Nm").value(this.reciver.getName());
 
         this.nodePmtInf = nodeCstmrDrctDbtInitn.append("PmtInf");
@@ -47,7 +48,7 @@ public abstract class SEPA {
         this.nodePmtInf.append("PmtMtd").value("TRA"); // For PAIN 001 (Überweisung) there are three Payment Methods: CHK (Cheque), TRF (TransferAdvice), TRA (CreditTransfer)
         this.nodePmtInf.append("BtchBookg").value("true");
         this.nodePmtInf.append("NbOfTxs").value(this.transactions.size());
-        this.nodePmtInf.append("CtrlSum").value(this.getTransactionVolume());
+        this.nodePmtInf.append("CtrlSum").value(this.getTransactionVolume().doubleValue());
 
         XMLNode nodePmtTpInf = this.nodePmtInf.append("PmtTpInf");
         nodePmtTpInf.append("SvcLvl").append("Cd").value("SEPA");
@@ -79,10 +80,10 @@ public abstract class SEPA {
 
     protected abstract void addTransactions();
 
-    private double getTransactionVolume() {
-        double volume = 0.0d;
+    private BigDecimal getTransactionVolume() {
+        BigDecimal volume = BigDecimal.ZERO;
         for (SEPATransaction transaction : this.transactions) {
-            volume += transaction.getValue();
+            volume.add(transaction.getValue());
         }
         return volume;
     }

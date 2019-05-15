@@ -5,6 +5,7 @@ import org.simple.sepa.SEPABankAccount;
 import org.simple.sepa.SEPACreditTransfer;
 import org.simple.sepa.SEPATransaction;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,7 +24,7 @@ public class ExampleCreditTransfer {
                                     "VBRSDE33347",
                                     "Peter Parker"
                             ),
-                            2000.20d,
+                            new BigDecimal(2000.20d),
                             "Salary PP 2018-07",
                             SEPATransaction.Currency.EUR
                     )
@@ -35,7 +36,7 @@ public class ExampleCreditTransfer {
                                     "UINVDEFFXXX",
                                     "Carl White"
                             ),
-                            1000.00d,
+                            new BigDecimal(1000.00d),
                             "Salary CW 2015-12",
                             SEPATransaction.Currency.EUR
                     )
@@ -47,7 +48,7 @@ public class ExampleCreditTransfer {
                                     "SWBSDESSXXX",
                                     "Frank Black"
                             ),
-                            5000.00d,
+                            new BigDecimal(5000.00d),
                             "Salary FB 2017-05",
                             SEPATransaction.Currency.EUR
                     )

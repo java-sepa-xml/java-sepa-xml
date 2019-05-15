@@ -2,6 +2,7 @@ package org.simple.sepa.examples;
 
 import org.simple.sepa.*;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -23,7 +24,7 @@ public class ExampleDirectDebit {
                                     "VBRSDE33347",
                                     "Peter Parker"
                             ),
-                            10.20d,
+                            new BigDecimal(10.20d),
                             "Invoice 4711564",
                             new Date(),
                             "MYCOMP11111111",
@@ -39,7 +40,7 @@ public class ExampleDirectDebit {
                                     "UINVDEFFXXX",
                                     "Carl White"
                             ),
-                            1000.00d,
+                            new BigDecimal(1000.00d),
                             "Invoice 789765",
                             new Date(),
                             "MYCOMP22222222",
@@ -55,7 +56,7 @@ public class ExampleDirectDebit {
                                     "SWBSDESSXXX",
                                     "Frank Black"
                             ),
-                            50.00d,
+                            new BigDecimal(50.00d),
                             "Invoice 7856",
                             new Date(),
                             "MYCOMP11111111",

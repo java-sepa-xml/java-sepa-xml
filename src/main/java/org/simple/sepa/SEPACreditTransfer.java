@@ -32,7 +32,7 @@ public class SEPACreditTransfer extends SEPA {
             nodeCdtTrfTxInf.append("Amt").
                     append("InstdAmt")
                     .attr("Ccy", transaction.getCurrency().toString())
-                    .value(transaction.getValue());
+                    .value(transaction.getValue().doubleValue());
 
             nodeCdtTrfTxInf.append("CdtrAgt")
                     .append("FinInstnId").append("BIC")
