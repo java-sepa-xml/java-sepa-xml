@@ -83,7 +83,7 @@ public abstract class SEPA {
     private BigDecimal getTransactionVolume() {
         BigDecimal volume = BigDecimal.ZERO;
         for (SEPATransaction transaction : this.transactions) {
-            volume.add(transaction.getValue());
+            volume = volume.add(transaction.getValue());
         }
         return volume;
     }
