@@ -4,7 +4,6 @@ import org.java.sepaxml.SEPA;
 import org.java.sepaxml.SEPABankAccount;
 import org.java.sepaxml.SEPADirectDebit;
 import org.java.sepaxml.SEPATransaction;
-import org.simple.sepa.*;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
