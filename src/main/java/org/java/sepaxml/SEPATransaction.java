@@ -1,4 +1,4 @@
-package org.simple.sepa;
+package org.java.sepaxml;
 
 import java.math.BigDecimal;
 import java.util.Date;

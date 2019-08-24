@@ -4,8 +4,8 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>org.simple.sepa</groupId>
-  <artifactId>simple-sepa-xml</artifactId>
+  <groupId>org.java-sepa-xml</groupId>
+  <artifactId>java-sepa-xml</artifactId>
   <version>1.0-SNAPSHOT</version>
   <dependencies>
     <dependency>
@@ -15,8 +15,8 @@
     </dependency>
   </dependencies>
 
-  <name>simple-sepa-xml</name>
-  <url>http://www.jlibsepa.org</url>
+  <name>java-sepa-xml</name>
+  <url>http://java-sepa-xml.org</url>
 
   <scm>
     <url>https://github.com/jlibsepa/jlibsepa.git</url>

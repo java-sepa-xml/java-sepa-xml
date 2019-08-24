@@ -1,4 +1,4 @@
-package org.simple.sepa;
+package org.java.sepaxml;
 
 import org.junit.Test;
 import org.w3c.dom.Document;

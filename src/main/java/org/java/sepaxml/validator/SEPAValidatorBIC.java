@@ -1,6 +1,6 @@
-package org.simple.sepa.validator;
+package org.java.sepaxml.validator;
 
-import org.simple.sepa.validator.exception.SEPAValidatorBICFormatException;
+import org.java.sepaxml.validator.exception.SEPAValidatorBICFormatException;
 
 public class SEPAValidatorBIC {
 

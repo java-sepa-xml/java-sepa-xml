@@ -1,4 +1,4 @@
-package org.simple.sepa.validator;
+package org.java.sepaxml.validator;
 
 import org.junit.Test;
 

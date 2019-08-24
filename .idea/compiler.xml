@@ -6,11 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="simple-sepa-xml" />
+        <module name="java-sepa-xml" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="simple-sepa-xml" target="1.7" />
+      <module name="java-sepa-xml" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>

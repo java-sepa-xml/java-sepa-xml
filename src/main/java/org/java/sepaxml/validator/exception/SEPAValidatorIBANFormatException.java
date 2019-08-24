@@ -1,4 +1,4 @@
-package org.simple.sepa.validator.exception;
+package org.java.sepaxml.validator.exception;
 
 public class SEPAValidatorIBANFormatException extends RuntimeException {
 

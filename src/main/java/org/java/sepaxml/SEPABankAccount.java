@@ -1,9 +1,9 @@
-package org.simple.sepa;
+package org.java.sepaxml;
 
-import org.simple.sepa.format.SEPAFormatFilter;
-import org.simple.sepa.validator.SEPAValidatorBIC;
-import org.simple.sepa.validator.SEPAValidatorIBAN;
-import org.simple.sepa.validator.exception.SEPAValidatorIBANFormatException;
+import org.java.sepaxml.format.SEPAFormatFilter;
+import org.java.sepaxml.validator.SEPAValidatorIBAN;
+import org.java.sepaxml.validator.SEPAValidatorBIC;
+import org.java.sepaxml.validator.exception.SEPAValidatorIBANFormatException;
 
 public class SEPABankAccount {
 

@@ -1,6 +1,6 @@
-package org.simple.sepa.validator;
+package org.java.sepaxml.validator;
 
-import org.simple.sepa.format.SEPAFormatFilter;
+import org.java.sepaxml.format.SEPAFormatFilter;
 
 import java.util.HashMap;
 import java.util.Map;

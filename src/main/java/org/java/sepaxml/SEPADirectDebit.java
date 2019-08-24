@@ -1,7 +1,8 @@
-package org.simple.sepa;
+package org.java.sepaxml;
 
-import org.simple.sepa.format.SEPAFormatDate;
-import org.simple.sepa.xml.XMLNode;
+import org.java.sepaxml.xml.XMLNode;
+import org.java.sepaxml.format.SEPAFormatDate;
+import org.java.sepaxml.xml.XMLNode;
 
 import java.util.Date;
 import java.util.List;

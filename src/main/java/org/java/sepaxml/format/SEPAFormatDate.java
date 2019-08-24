@@ -1,4 +1,4 @@
-package org.simple.sepa.format;
+package org.java.sepaxml.format;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

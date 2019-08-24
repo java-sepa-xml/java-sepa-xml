@@ -1,9 +1,9 @@
-package org.simple.sepa.examples;
+package org.java.sepaxml.examples;
 
-import org.simple.sepa.SEPA;
-import org.simple.sepa.SEPABankAccount;
-import org.simple.sepa.SEPACreditTransfer;
-import org.simple.sepa.SEPATransaction;
+import org.java.sepaxml.SEPA;
+import org.java.sepaxml.SEPABankAccount;
+import org.java.sepaxml.SEPACreditTransfer;
+import org.java.sepaxml.SEPATransaction;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
