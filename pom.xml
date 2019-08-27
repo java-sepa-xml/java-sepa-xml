@@ -5,7 +5,7 @@
 
     <groupId>com.github.java-sepa-xml</groupId>
     <artifactId>java-sepa-xml</artifactId>
-    <version>1.0</version>
+    <version>1.1-SNAPSHOT</version>
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
@@ -21,7 +21,7 @@
         <connection>scm:git:git://github.com/java-sepa-xml/java-sepa-xml.git</connection>
         <developerConnection>scm:git:git@github.com:java-sepa-xml/java-sepa-xml.git</developerConnection>
         <url>https://github.com/java-sepa-xml/java-sepa-xml</url>
-        <tag>java-sepa-xml-1.0</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <licenses>
