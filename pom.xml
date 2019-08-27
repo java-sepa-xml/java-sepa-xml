@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- https://dzone.com/articles/publish-your-artifacts-to-maven-central -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.github.java-sepa-xml</groupId>
     <artifactId>java-sepa-xml</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
@@ -22,7 +21,7 @@
         <connection>scm:git:git://github.com/java-sepa-xml/java-sepa-xml.git</connection>
         <developerConnection>scm:git:git@github.com:java-sepa-xml/java-sepa-xml.git</developerConnection>
         <url>https://github.com/java-sepa-xml/java-sepa-xml</url>
-        <tag>HEAD</tag>
+        <tag>java-sepa-xml-1.0</tag>
     </scm>
 
     <licenses>
@@ -178,7 +177,7 @@
                     <execuations>
                         <execution>
                             <id>attach-javadoc</id>
-                            <goals/>
+                            <goals />
                         </execution>
                     </execuations>
                     -->
