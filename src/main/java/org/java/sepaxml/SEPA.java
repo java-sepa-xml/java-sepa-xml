@@ -10,6 +10,16 @@ import java.util.Date;
 import java.util.List;
 
 public abstract class SEPA {
+    public enum PaymentMethods {
+
+        Cheque("CHK"), TransferAdvice("TRF"),  CreditTransfer("TRA");
+
+        private String code;
+
+        PaymentMethods(String code) {
+            this.code = code;
+        }
+    }
 
     protected SEPABankAccount reciver;
     protected List<SEPATransaction> transactions;
@@ -18,6 +28,8 @@ public abstract class SEPA {
 
     protected XMLNode document;
     protected XMLNode nodePmtInf;
+
+    protected PaymentMethods paymentMethod = PaymentMethods.CreditTransfer;
 
     public SEPA(SEPABankAccount reciver, List<SEPATransaction> transactions) {
         this(reciver, transactions, new Date());
@@ -46,7 +58,7 @@ public abstract class SEPA {
 
         this.nodePmtInf = nodeCstmrDrctDbtInitn.append("PmtInf");
         this.nodePmtInf.append("PmtInfId").value("PMT-ID0-" + SEPAFormatDate.formatDate(executionDate));
-        this.nodePmtInf.append("PmtMtd").value("TRA"); // For PAIN 001 (Überweisung) there are three Payment Methods: CHK (Cheque), TRF (TransferAdvice), TRA (CreditTransfer)
+        this.nodePmtInf.append("PmtMtd").value(paymentMethod.code); // For PAIN 001 (Überweisung) there are three Payment Methods: CHK (Cheque), TRF (TransferAdvice), TRA (CreditTransfer)
         this.nodePmtInf.append("BtchBookg").value("true");
         this.nodePmtInf.append("NbOfTxs").value(this.transactions.size());
         this.nodePmtInf.append("CtrlSum").value(this.getTransactionVolume().doubleValue());
@@ -87,6 +99,10 @@ public abstract class SEPA {
             volume = volume.add(transaction.getValue());
         }
         return volume;
+    }
+
+    public void setPaymentMethod(PaymentMethods paymentMethod) {
+        this.paymentMethod = paymentMethod;
     }
 
     public void write(OutputStream outputStream) {
