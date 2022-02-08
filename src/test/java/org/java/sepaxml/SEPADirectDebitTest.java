@@ -47,7 +47,7 @@ public class SEPADirectDebitTest {
                     null));
         }
 
-        SEPADirectDebit test = new SEPADirectDebit(reciver, transactions, "Test");
+        SEPADirectDebit test = new SEPADirectDebit(SEPA.PaymentMethods.TransferAdvice, reciver, transactions, "Test");
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         test.write(out);
 

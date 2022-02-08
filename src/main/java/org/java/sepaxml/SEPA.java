@@ -14,7 +14,7 @@ public abstract class SEPA {
 
         Cheque("CHK"), TransferAdvice("TRF"),  CreditTransfer("TRA");
 
-        private String code;
+        private final String code;
 
         PaymentMethods(String code) {
             this.code = code;
@@ -31,11 +31,12 @@ public abstract class SEPA {
 
     protected PaymentMethods paymentMethod = PaymentMethods.CreditTransfer;
 
-    public SEPA(SEPABankAccount reciver, List<SEPATransaction> transactions) {
-        this(reciver, transactions, new Date());
+    public SEPA(PaymentMethods paymentMethod, SEPABankAccount reciver, List<SEPATransaction> transactions) {
+        this(paymentMethod, reciver, transactions, new Date());
     }
 
-    public SEPA(SEPABankAccount reciver, List<SEPATransaction> transactions, Date executionDate) {
+    public SEPA(PaymentMethods paymentMethod, SEPABankAccount reciver, List<SEPATransaction> transactions, Date executionDate) {
+        this.paymentMethod = paymentMethod;
         this.reciver = reciver;
         this.transactions = transactions;
         this.executionDate = executionDate;
@@ -99,10 +100,6 @@ public abstract class SEPA {
             volume = volume.add(transaction.getValue());
         }
         return volume;
-    }
-
-    public void setPaymentMethod(PaymentMethods paymentMethod) {
-        this.paymentMethod = paymentMethod;
     }
 
     public void write(OutputStream outputStream) {

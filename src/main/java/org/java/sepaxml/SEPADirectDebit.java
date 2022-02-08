@@ -11,12 +11,12 @@ public class SEPADirectDebit extends SEPA {
 
     private String creditorID;
 
-    public SEPADirectDebit(SEPABankAccount reciever, List<SEPATransaction> transactions, String creditorID) {
-        this(reciever, transactions, new Date(), creditorID);
+    public SEPADirectDebit(PaymentMethods paymentMethod, SEPABankAccount reciever, List<SEPATransaction> transactions, String creditorID) {
+        this(paymentMethod, reciever, transactions, new Date(), creditorID);
     }
 
-    public SEPADirectDebit(SEPABankAccount reciever, List<SEPATransaction> transactions, Date executionDate, String creditorID) {
-        super(reciever, transactions, executionDate);
+    public SEPADirectDebit(PaymentMethods paymentMethod, SEPABankAccount reciever, List<SEPATransaction> transactions, Date executionDate, String creditorID) {
+        super(paymentMethod, reciever, transactions, executionDate);
         this.creditorID = creditorID;
         this.build();
     }

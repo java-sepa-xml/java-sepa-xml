@@ -70,7 +70,7 @@ public class ExampleDirectDebit {
             );
         }};
 
-        final SEPA sepa = new SEPADirectDebit(reciver, transactions, creditorID);
+        final SEPA sepa = new SEPADirectDebit(SEPA.PaymentMethods.TransferAdvice, reciver, transactions, creditorID);
         System.out.println(sepa.toString());
     }
 }

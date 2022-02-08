@@ -55,7 +55,7 @@ public class ExampleCreditTransfer {
             );
         }};
 
-        final SEPA sepa = new SEPACreditTransfer(sender, transactions);
+        final SEPA sepa = new SEPACreditTransfer(SEPA.PaymentMethods.TransferAdvice, sender, transactions);
         sepa.write(System.out);
     }
 }

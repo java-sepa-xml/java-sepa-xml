@@ -8,12 +8,12 @@ import java.util.List;
 
 public class SEPACreditTransfer extends SEPA {
 
-    public SEPACreditTransfer(SEPABankAccount sender, List<SEPATransaction> transactions) {
-        this(sender, transactions, new Date());
+    public SEPACreditTransfer(PaymentMethods paymentMethod, SEPABankAccount sender, List<SEPATransaction> transactions) {
+        this(paymentMethod, sender, transactions, new Date());
     }
 
-    public SEPACreditTransfer(SEPABankAccount sender, List<SEPATransaction> transactions, Date executionDate) {
-        super(sender, transactions, executionDate);
+    public SEPACreditTransfer(PaymentMethods paymentMethod, SEPABankAccount sender, List<SEPATransaction> transactions, Date executionDate) {
+        super(paymentMethod, sender, transactions, executionDate);
         this.build();
     }
 
@@ -47,9 +47,9 @@ public class SEPACreditTransfer extends SEPA {
                     .append("Id").append("IBAN")
                     .value(transaction.getBankAccount().getIBAN());
 
-            nodeCdtTrfTxInf.append("RmtInf")
-                    .append("Ustrd")
-                    .value(transaction.getSubject());
+            //nodeCdtTrfTxInf.append("RmtInf")
+            //        .append("Ustrd")
+            //        .value(transaction.getSubject());
 
             if (transaction.getRemittance() != null) {
                 nodeCdtTrfTxInf.append("RmtInf")
