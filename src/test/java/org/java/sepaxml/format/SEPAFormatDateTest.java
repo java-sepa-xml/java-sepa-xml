@@ -10,10 +10,10 @@ public class SEPAFormatDateTest {
 
     @Test
     public void formatDate() throws Exception {
-        assertEquals("20000010120000", SEPAFormatDate.formatDate(new Date(100, 5, 10)));
-        assertEquals("20150029120000", SEPAFormatDate.formatDate(new Date(115, 11, 29)));
-        assertEquals("19700002120000", SEPAFormatDate.formatDate(new Date(70, 1, 30)));
-        assertEquals("20250014120000", SEPAFormatDate.formatDate(new Date(125, 8, 14)));
+        assertEquals("20000610120000", SEPAFormatDate.formatDate(new Date(100, 5, 10)));
+        assertEquals("20151229120000", SEPAFormatDate.formatDate(new Date(115, 11, 29)));
+        assertEquals("19700302120000", SEPAFormatDate.formatDate(new Date(70, 1, 30)));
+        assertEquals("20250914120000", SEPAFormatDate.formatDate(new Date(125, 8, 14)));
     }
 
     @Test
