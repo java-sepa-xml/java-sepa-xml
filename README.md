@@ -1,7 +1,9 @@
+> [!WARNING]
+> The repo is not maintained, if you'd like to take over maintainance contact me at Johannes.Laier@gmail.com
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 # Simple Java SEPA XML Generator
-
 
 The Single Euro Payments Area (SEPA) is a payment-integration initiative of the European Union for simplification of bank transfers denominated in euro. As of 2018, SEPA consists of the 28 member states of the European Union, the four member states of the European Free Trade Association (Iceland, Liechtenstein, Norway and Switzerland), Andorra, Monaco and San Marino.
 
